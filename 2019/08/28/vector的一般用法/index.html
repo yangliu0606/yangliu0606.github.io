@@ -6,15 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2019 | Hexo</title>
+  <title>vector的一般用法 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/archives/2019/index.html">
+  <meta name="description" content="vector基础函数操作  1.push_back   在容器的最后添加一个数据2.pop_back     删除容器的最后一个数据3.size              当前容器内数据的个数4.begin            得到容器起始数据位置5.end              得到容器最后数据位置6.reserve        改变当前容器所分配空间的大小7.erase">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vector的一般用法">
+<meta property="og:url" content="http://yoursite.com/2019/08/28/vector的一般用法/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="vector基础函数操作  1.push_back   在容器的最后添加一个数据2.pop_back     删除容器的最后一个数据3.size              当前容器内数据的个数4.begin            得到容器起始数据位置5.end              得到容器最后数据位置6.reserve        改变当前容器所分配空间的大小7.erase">
 <meta property="og:locale" content="en">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/19357843-2c5a8886d66edea5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2019-08-28T12:02:50.110Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="vector的一般用法">
+<meta name="twitter:description" content="vector基础函数操作  1.push_back   在容器的最后添加一个数据2.pop_back     删除容器的最后一个数据3.size              当前容器内数据的个数4.begin            得到容器起始数据位置5.end              得到容器最后数据位置6.reserve        改变当前容器所分配空间的大小7.erase">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/19357843-2c5a8886d66edea5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -150,76 +156,162 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-vector的一般用法" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      vector的一般用法
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/08/28/vector的一般用法/" class="archive-article-date">
+
+        
+        <a href="/2019/08/28/vector的一般用法/" class="archive-article-date">
   	<time datetime="2019-08-28T12:01:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-28</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/08/28/vector的一般用法/">vector的一般用法</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>vector基础函数操作</p>
+</blockquote>
+<p>1.push_back   在容器的最后添加一个数据<br>2.pop_back     删除容器的最后一个数据<br>3.size              当前容器内数据的个数<br>4.begin            得到容器起始数据位置<br>5.end              得到容器最后数据位置<br>6.reserve        改变当前容器所分配空间的大小<br>7.erase           删除指定的数据项<br>8.clear            清空当前的容器<br>9.empty          判断容器是否为空</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line">// 将容器操作理解为栈的操作</span><br><span class="line">//</span><br><span class="line"></span><br><span class="line">#include &quot;pch.h&quot;</span><br><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include&lt;string&gt;</span><br><span class="line">#include&lt;vector&gt;</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">void main()</span><br><span class="line">&#123;</span><br><span class="line">	vector&lt;string&gt; vec;//定义一个容器，名为vec，容器中所存每个元素类型为string类型</span><br><span class="line">	string str;</span><br><span class="line">	str = &quot;第一次&quot;;</span><br><span class="line">	vec.push_back(str);//存入容器，相当于入栈</span><br><span class="line">	vec.push_back(&quot;第二次&quot;);//存入容器，相当于入栈</span><br><span class="line">	vec.push_back(&quot;第三次&quot;);//存入容器，相当于入栈</span><br><span class="line">	vec.insert(vec.begin()+2,&quot;第二次和第三次之间插入新值&quot;);</span><br><span class="line">	//相当于vec.insert(vec.end(),&quot;功能相当于vec.push_back(&quot;最后添加&quot;);&quot;);</span><br><span class="line">	vec.insert(vec.begin(),3, &quot;第一次前插入3个新值&quot;);//在第一次前插入3次“第一次前插入3个新值”</span><br><span class="line">	</span><br><span class="line">	for (int i = 0; i &lt; vec.size(); i++)</span><br><span class="line">	&#123;</span><br><span class="line">		cout &lt;&lt; vec[i] &lt;&lt; endl;//打印容器内每个string类型的值</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	cout &lt;&lt; vec.size() &lt;&lt; endl;//打印容器内string类型的元素个数</span><br><span class="line">	</span><br><span class="line">	cout &lt;&lt; &quot;&quot; &lt;&lt; endl;</span><br><span class="line">	cout &lt;&lt; &quot;打印翻转后的容器：&quot; &lt;&lt; endl;</span><br><span class="line">	reverse(vec.begin(),vec.end());//翻转任意段元素</span><br><span class="line">  //打印翻转后的容器</span><br><span class="line">	for (int i = 0; i &lt; vec.size(); i++)</span><br><span class="line">	&#123;</span><br><span class="line">		cout &lt;&lt; vec[i] &lt;&lt; endl;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	cout &lt;&lt; &quot;&quot; &lt;&lt; endl;</span><br><span class="line">	vec.pop_back();//将最后入栈的值进行出栈</span><br><span class="line">	for (int i = 0; i &lt; vec.size(); i++)</span><br><span class="line">	&#123;</span><br><span class="line">		cout &lt;&lt; vec[i] &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line">	cout &lt;&lt; &quot;&quot; &lt;&lt; endl;</span><br><span class="line">	vec.erase(vec.begin() + 4, vec.begin() + 6);//可删除指定区间内的元素，即这里把&quot;第二次和第三次之间插入新值&quot;删除</span><br><span class="line">//	vec.erase(vec.begin() + 5);功能同上句</span><br><span class="line"></span><br><span class="line">	cout &lt;&lt; vec.empty() &lt;&lt; endl;//判断容器是否为空，如果为空，返回1，否则返回0</span><br><span class="line">	cout &lt;&lt; vec.size() &lt;&lt; endl;//容器大小，即所存string类型元素的个数，和每个string的大小无关</span><br><span class="line">	vec.resize(10);//重新设置该容器大小，设置为10</span><br><span class="line">	cout &lt;&lt; vec.size() &lt;&lt; endl;</span><br><span class="line">	vec.clear();//清空容器</span><br><span class="line">	cout &lt;&lt; vec.empty() &lt;&lt; endl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-        <div class="article-info info-on-right">
-          
-          
+<p><img src="https://upload-images.jianshu.io/upload_images/19357843-2c5a8886d66edea5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="程序运行结果"></p>
 
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/08/28/vector的一般用法/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/08/21/在Windows10系统下通过hugo搭建个人博客/" class="archive-article-date">
-  	<time datetime="2019-08-21T12:29:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-21</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2019/08/21/在Windows10系统下通过hugo搭建个人博客/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">在Windows10系统下通过hugo搭建个人博客</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/08/21/在Windows10系统下通过hugo搭建个人博客/">在Windows10系统下通过hugo搭建个人博客</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
+
+  
 
 
           </div>
@@ -242,8 +334,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
