@@ -152,6 +152,74 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Java中关于调用子类构造方法来定义子类对象过程总结" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/09/02/Java中关于调用子类构造方法来定义子类对象过程总结/">Java中关于调用子类构造方法来定义子类对象过程总结</a>
+    </h1>
+  
+
+        
+        <a href="/2019/09/02/Java中关于调用子类构造方法来定义子类对象过程总结/" class="archive-article-date">
+  	<time datetime="2019-09-02T06:49:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-02</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Java中，当我们调用子类的构造方法时，一定会调用父类的无参构造方法吗？我们先看如下代码："><a href="#Java中，当我们调用子类的构造方法时，一定会调用父类的无参构造方法吗？我们先看如下代码：" class="headerlink" title="Java中，当我们调用子类的构造方法时，一定会调用父类的无参构造方法吗？我们先看如下代码："></a>Java中，当我们调用子类的构造方法时，一定会调用父类的无参构造方法吗？我们先看如下代码：</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">public class textTi &#123;</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		A a = new A(3);</span><br><span class="line">	&#125;	</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class A extends B &#123;</span><br><span class="line">	public A(int t) &#123;</span><br><span class="line">		System.out.println(&quot;调用A&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class B&#123;</span><br><span class="line">	public B() &#123;</span><br><span class="line">		System.out.println(&quot;调用父类B的无参构造方法！&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">	public B(int i) &#123;</span><br><span class="line">		System.out.println(&quot;调用父类B的有参构造方法！&quot;);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="运行结果为如下图："><a href="#运行结果为如下图：" class="headerlink" title="运行结果为如下图："></a>运行结果为如下图：</h1><p><img src="https://upload-images.jianshu.io/upload_images/19357843-a6018bd6017a163d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="TIM截图20190902142427.png"></p>
+<h1 id="由上图可见，在调用子类的构造函数之前，会先调用父类的无参构造函数，这是因为我们通过调用子类构造函数来定义一个子类对象时，Java程序会先通过父类的无参构造方法将父类构造出来，所谓先有父才有子。"><a href="#由上图可见，在调用子类的构造函数之前，会先调用父类的无参构造函数，这是因为我们通过调用子类构造函数来定义一个子类对象时，Java程序会先通过父类的无参构造方法将父类构造出来，所谓先有父才有子。" class="headerlink" title="由上图可见，在调用子类的构造函数之前，会先调用父类的无参构造函数，这是因为我们通过调用子类构造函数来定义一个子类对象时，Java程序会先通过父类的无参构造方法将父类构造出来，所谓先有父才有子。"></a>由上图可见，在调用子类的构造函数之前，会先调用父类的无参构造函数，这是因为我们通过调用子类构造函数来定义一个子类对象时，Java程序会先通过父类的无参构造方法将父类构造出来，所谓先有父才有子。</h1><h1 id="那么如果父类只有有参构造方法，程序运行结果会是怎样："><a href="#那么如果父类只有有参构造方法，程序运行结果会是怎样：" class="headerlink" title="那么如果父类只有有参构造方法，程序运行结果会是怎样："></a>那么如果父类只有有参构造方法，程序运行结果会是怎样：</h1><p><img src="https://upload-images.jianshu.io/upload_images/19357843-e6ced8843d7ba401.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="TIM截图20190902143227.png"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/19357843-559d1a159c337f37.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="TIM截图20190902143254.png"></p>
+<h1 id="当父类中只有有参构造方法时，程序直接报错，提示隐式超级构造函数B（）未定义，必须显式调用另一个构造函数。那如果我们将父类的有参构造方法也注释起来，结果又会怎样："><a href="#当父类中只有有参构造方法时，程序直接报错，提示隐式超级构造函数B（）未定义，必须显式调用另一个构造函数。那如果我们将父类的有参构造方法也注释起来，结果又会怎样：" class="headerlink" title="当父类中只有有参构造方法时，程序直接报错，提示隐式超级构造函数B（）未定义，必须显式调用另一个构造函数。那如果我们将父类的有参构造方法也注释起来，结果又会怎样："></a>当父类中只有有参构造方法时，程序直接报错，提示隐式超级构造函数B（）未定义，必须显式调用另一个构造函数。那如果我们将父类的有参构造方法也注释起来，结果又会怎样：</h1><p><img src="https://upload-images.jianshu.io/upload_images/19357843-01094fb2a66cafdd.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="TIM截图20190902143828.png"></p>
+<h1 id="编译无错，且结果只显示调用子类A；这是因为当父类中如果没有定义任何有参或者无参构造方法时，系统会在编译时自动帮你定义一个无参构造方法，但如果我们在父类中定义了有参构造方法而没有定义无参构造方法，那么系统将不会再帮你自动定义无参构造方法，所以当定义子类的对象时，系统在父类中找不到父类的无参构造方法，程序将报错！！"><a href="#编译无错，且结果只显示调用子类A；这是因为当父类中如果没有定义任何有参或者无参构造方法时，系统会在编译时自动帮你定义一个无参构造方法，但如果我们在父类中定义了有参构造方法而没有定义无参构造方法，那么系统将不会再帮你自动定义无参构造方法，所以当定义子类的对象时，系统在父类中找不到父类的无参构造方法，程序将报错！！" class="headerlink" title="编译无错，且结果只显示调用子类A；这是因为当父类中如果没有定义任何有参或者无参构造方法时，系统会在编译时自动帮你定义一个无参构造方法，但如果我们在父类中定义了有参构造方法而没有定义无参构造方法，那么系统将不会再帮你自动定义无参构造方法，所以当定义子类的对象时，系统在父类中找不到父类的无参构造方法，程序将报错！！"></a>编译无错，且结果只显示调用子类A；这是因为当父类中如果没有定义任何有参或者无参构造方法时，系统会在编译时自动帮你定义一个无参构造方法，但如果我们在父类中定义了有参构造方法而没有定义无参构造方法，那么系统将不会再帮你自动定义无参构造方法，所以当定义子类的对象时，系统在父类中找不到父类的无参构造方法，程序将报错！！</h1><h1 id="以上是自己学习总结，能力有限，如果总结有误还请指出……"><a href="#以上是自己学习总结，能力有限，如果总结有误还请指出……" class="headerlink" title="以上是自己学习总结，能力有限，如果总结有误还请指出…….."></a>以上是自己学习总结，能力有限，如果总结有误还请指出……..</h1>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/09/02/Java中关于调用子类构造方法来定义子类对象过程总结/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-指针限定学习笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
